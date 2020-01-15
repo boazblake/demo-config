@@ -2,7 +2,6 @@ import ProfileLayout from "Layouts/ProfileLayout"
 import Dashboard from "Pages/Dashboard"
 import Default from "Pages/Default"
 import ManageUsers from "Pages/Admin/ManageUsers.js"
-import CalculatorConfig from "Pages/Admin/CalculatorConfig.js"
 import { scrollToAnchor } from "Utils"
 import Icons from "Components/Icons"
 
@@ -41,30 +40,6 @@ const authenticated = [
       isAnchor && scrollToAnchor(mdl.state.anchor)
     },
     component: (mdl) => m(ProfileLayout, { mdl }, m(Default, { mdl }))
-  },
-  {
-    id: "calculator-config",
-    title: "Configure Calculators",
-    icon: Icons.calcs,
-    route: "/EXRX/:name/calculator-config",
-    position: ["left-aside"],
-    group: ["authenticated", "admin"],
-    children: [],
-    onmatch: (mdl, args, path, fullroute, isAnchor) => {
-      // console.log(
-      //   "calcconfig",
-      //   mdl,
-      //   args,
-      //   path,
-      //   fullroute,
-      //   isAnchor,
-      //   mdl.state.isAuth(),
-      //   mdl.user.isAdmin
-      // )
-      // !mdl.user.isAdmin && m.route.set(m.route.get())
-      isAnchor && scrollToAnchor(mdl.state.anchor)
-    },
-    component: (mdl) => m(ProfileLayout, { mdl }, m(CalculatorConfig, { mdl }))
   },
   {
     id: "manage-users",
